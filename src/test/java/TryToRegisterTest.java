@@ -42,14 +42,14 @@ public class TryToRegisterTest {
         StellarBurgerLoginPage stellarBurgerLoginPage = new StellarBurgerLoginPage(driver);
         StellarBurgerRegistrationPage stellarBurgerRegistrationPage = new StellarBurgerRegistrationPage(driver);
 
-        stellarBurgerMainPage.waitStellarBurgerPageLoading();
+        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
         stellarBurgerMainPage.clickOnLoginToAccountButton();
 
         stellarBurgerLoginPage.waitStellarBurgerLoginPageLoading();
         stellarBurgerLoginPage.clickOnRegisterLink();
 
         stellarBurgerRegistrationPage.waitStellarBurgerRegistrationPageLoading();
-        stellarBurgerRegistrationPage.enterDataToFields("Mukhammed", "Mukhammed@yandex.ru", "password");
+        stellarBurgerRegistrationPage.enterDataToFieldsForRegistration("Mukhammed", "Mukhammed@yandex.ru", "password");
         stellarBurgerRegistrationPage.clickToRegisterButton();
 
         stellarBurgerLoginPage.presenceOfTextLogin();
@@ -62,14 +62,14 @@ public class TryToRegisterTest {
         StellarBurgerLoginPage stellarBurgerLoginPage = new StellarBurgerLoginPage(driver);
         StellarBurgerRegistrationPage stellarBurgerRegistrationPage = new StellarBurgerRegistrationPage(driver);
 
-        stellarBurgerMainPage.waitStellarBurgerPageLoading();
+        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
         stellarBurgerMainPage.clickOnLoginToAccountButton();
 
         stellarBurgerLoginPage.waitStellarBurgerLoginPageLoading();
         stellarBurgerLoginPage.clickOnRegisterLink();
 
         stellarBurgerRegistrationPage.waitStellarBurgerRegistrationPageLoading();
-        stellarBurgerRegistrationPage.enterDataToFields("Mukhammed", "Mukhammed@yandex.ru", "passw");
+        stellarBurgerRegistrationPage.enterDataToFieldsForRegistration("Mukhammed", "Mukhammed@yandex.ru", "passw");
         stellarBurgerRegistrationPage.clickToRegisterButton();
 
         stellarBurgerRegistrationPage.checkingCorrectnessOfErrorText();

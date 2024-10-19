@@ -11,6 +11,22 @@ import static io.restassured.RestAssured.given;
 
 public class StepsForWorkingWithAPI {
 
+    @Step("Создаем пользователя")
+    public Response createUser(String email, String password, String name) {
+        Map<String, Object> requestBody = new HashMap<>();
+        requestBody.put("email", email);
+        requestBody.put("password", password);
+        requestBody.put("name", name);
+
+        Response response =
+                given()
+                        .header("Content-type", "application/json")
+                        .body(requestBody)
+                        .when()
+                        .post(Constants.ENDPOINT_FOR_CREATING_USER);
+        return response;
+    }
+
     @Step("Авторизуемся под пользователем")
     public Response loginUser(String email, String password) {
         Map<String, Object> requestBody = new HashMap<>();

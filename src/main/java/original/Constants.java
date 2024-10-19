@@ -8,6 +8,7 @@ public class Constants {
     public final static String BASIC_URL = "https://stellarburgers.nomoreparties.site";
     public final static String ENDPOINT_FOR_LOGIN_USER = "/api/auth/login";
     public final static String ENDPOINT_FOR_DELETING_USER = "/api/auth/user";
+    public final static String ENDPOINT_FOR_CREATING_USER = "/api/auth/register";
 
     public final static String EXPECTED_ERROR_MESSAGE_FOR_PASSWORD_FIELD = "Некорректный пароль";
 }
