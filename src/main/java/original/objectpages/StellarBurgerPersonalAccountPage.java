@@ -14,6 +14,8 @@ public class StellarBurgerPersonalAccountPage {
     private WebDriver driver;
 
     private By profileText = By.xpath(".//a[text()='Профиль']");
+    private By constructorButton = By.xpath(".//p[text()='Конструктор']");
+    private By stellarBurgerLogo = By.xpath(".//div[@class='AppHeader_header__logo__2D0X2']");
 
     public StellarBurgerPersonalAccountPage(WebDriver driver) {
         this.driver = driver;
@@ -30,4 +32,11 @@ public class StellarBurgerPersonalAccountPage {
         assertTrue(driver.findElement(profileText).isDisplayed());
     }
 
+    public void clickToConstructorButton() {
+        driver.findElement(constructorButton).click();
+    }
+
+    public void clickToStellarBurgerLogo() {
+        driver.findElement(stellarBurgerLogo).click();
+    }
 }
