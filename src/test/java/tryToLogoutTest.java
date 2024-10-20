@@ -12,6 +12,7 @@ import original.objectpages.StellarBurgerMainPage;
 import original.objectpages.StellarBurgerPersonalAccountPage;
 
 public class tryToLogoutTest {
+
     WebDriver driver;
 
     private String accessToken;
@@ -35,13 +36,9 @@ public class tryToLogoutTest {
         RestAssured.baseURI = Constants.BASIC_URL;
         Response responseAfterCreatingUser = stepsForWorkingWithAPI.createUser("Mukhammed@yandex.ru", "password", "Mukhammed");
         setAccessToken(stepsForWorkingWithAPI.extractingToken(responseAfterCreatingUser));
-    }
 
-    @Test
-    public void tryToLogoutByClickingLogoutButton() {
         StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
         StellarBurgerLoginPage stellarBurgerLoginPage = new StellarBurgerLoginPage(driver);
-        StellarBurgerPersonalAccountPage stellarBurgerPersonalAccountPage = new StellarBurgerPersonalAccountPage(driver);
 
         stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
         stellarBurgerMainPage.clickOnLoginToAccountButton();
@@ -52,6 +49,12 @@ public class tryToLogoutTest {
 
         stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
         stellarBurgerMainPage.clickOnPersonalAccountButton();
+    }
+
+    @Test
+    public void tryToLogoutByClickingLogoutButton() {
+        StellarBurgerLoginPage stellarBurgerLoginPage = new StellarBurgerLoginPage(driver);
+        StellarBurgerPersonalAccountPage stellarBurgerPersonalAccountPage = new StellarBurgerPersonalAccountPage(driver);
 
         stellarBurgerPersonalAccountPage.waitStellarBurgerPersonalAccountPageLoading();
         stellarBurgerPersonalAccountPage.clickToLogoutButton();

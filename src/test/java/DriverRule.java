@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import original.Constants;
 
 public class DriverRule extends ExternalResource {
+
     private WebDriver driver;
 
     //Геттер для драйвера

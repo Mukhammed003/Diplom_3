@@ -12,6 +12,7 @@ import original.objectpages.StellarBurgerMainPage;
 import original.objectpages.StellarBurgerRegistrationPage;
 
 public class TryToRegisterTest {
+
     WebDriver driver;
 
     private Boolean isNeedToDeleteUser;
@@ -33,20 +34,22 @@ public class TryToRegisterTest {
     public void initializeDriver() {
         driver = factory.getDriver();
         RestAssured.baseURI = Constants.BASIC_URL;
-    }
 
-    @Test
-    public void rightRegistration() {
-        setIsNeedToDeleteUser(true);
         StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
         StellarBurgerLoginPage stellarBurgerLoginPage = new StellarBurgerLoginPage(driver);
-        StellarBurgerRegistrationPage stellarBurgerRegistrationPage = new StellarBurgerRegistrationPage(driver);
 
         stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
         stellarBurgerMainPage.clickOnLoginToAccountButton();
 
         stellarBurgerLoginPage.waitStellarBurgerLoginPageLoading();
         stellarBurgerLoginPage.clickOnRegisterLink();
+    }
+
+    @Test
+    public void rightRegistration() {
+        setIsNeedToDeleteUser(true);
+        StellarBurgerLoginPage stellarBurgerLoginPage = new StellarBurgerLoginPage(driver);
+        StellarBurgerRegistrationPage stellarBurgerRegistrationPage = new StellarBurgerRegistrationPage(driver);
 
         stellarBurgerRegistrationPage.waitStellarBurgerRegistrationPageLoading();
         stellarBurgerRegistrationPage.enterDataToFieldsForRegistration("Mukhammed", "Mukhammed@yandex.ru", "password");
@@ -58,15 +61,7 @@ public class TryToRegisterTest {
     @Test
     public void tryToRegisterWithWrongPassword() {
         setIsNeedToDeleteUser(false);
-        StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
-        StellarBurgerLoginPage stellarBurgerLoginPage = new StellarBurgerLoginPage(driver);
         StellarBurgerRegistrationPage stellarBurgerRegistrationPage = new StellarBurgerRegistrationPage(driver);
-
-        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
-        stellarBurgerMainPage.clickOnLoginToAccountButton();
-
-        stellarBurgerLoginPage.waitStellarBurgerLoginPageLoading();
-        stellarBurgerLoginPage.clickOnRegisterLink();
 
         stellarBurgerRegistrationPage.waitStellarBurgerRegistrationPageLoading();
         stellarBurgerRegistrationPage.enterDataToFieldsForRegistration("Mukhammed", "Mukhammed@yandex.ru", "passw");

@@ -9,9 +9,8 @@ import original.Constants;
 import original.apisteps.StepsForWorkingWithAPI;
 import original.objectpages.StellarBurgerLoginPage;
 import original.objectpages.StellarBurgerMainPage;
-import original.objectpages.StellarBurgerPersonalAccountPage;
 
-public class TryToTransferToPersonalAccountTest {
+public class tryToTransitionBetweenSectionsOfConstructorTest {
 
     WebDriver driver;
 
@@ -49,15 +48,31 @@ public class TryToTransferToPersonalAccountTest {
     }
 
     @Test
-    public void tryToTransferToPersonalAccountPageByClickingPersonalAccountButton() {
+    public void tryToTransitionToBunsSectionByClickingBunsButton() {
         StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
-        StellarBurgerPersonalAccountPage stellarBurgerPersonalAccountPage = new StellarBurgerPersonalAccountPage(driver);
 
         stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
-        stellarBurgerMainPage.clickOnPersonalAccountButton();
+        stellarBurgerMainPage.clickOnSaucesButton();
+        stellarBurgerMainPage.clickOnBunsButton();
+        stellarBurgerMainPage.presenceOfBunsSection();
+    }
 
-        stellarBurgerPersonalAccountPage.waitStellarBurgerPersonalAccountPageLoading();
-        stellarBurgerPersonalAccountPage.presenceOfProfileText();
+    @Test
+    public void tryToTransitionToSaucesSectionByClickingSaucesButton() {
+        StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
+
+        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
+        stellarBurgerMainPage.clickOnSaucesButton();
+        stellarBurgerMainPage.presenceOfSaucesSection();
+    }
+
+    @Test
+    public void tryToTransitionToFillingsSectionByClickingFillingsButton() {
+        StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
+
+        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
+        stellarBurgerMainPage.clickOnFillingsButton();
+        stellarBurgerMainPage.presenceOfFillingsSection();
     }
 
     @After

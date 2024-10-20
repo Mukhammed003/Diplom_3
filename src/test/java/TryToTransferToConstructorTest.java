@@ -12,6 +12,7 @@ import original.objectpages.StellarBurgerMainPage;
 import original.objectpages.StellarBurgerPersonalAccountPage;
 
 public class TryToTransferToConstructorTest {
+
     WebDriver driver;
 
     private String accessToken;
@@ -35,50 +36,41 @@ public class TryToTransferToConstructorTest {
         RestAssured.baseURI = Constants.BASIC_URL;
         Response responseAfterCreatingUser = stepsForWorkingWithAPI.createUser("Mukhammed@yandex.ru", "password", "Mukhammed");
         setAccessToken(stepsForWorkingWithAPI.extractingToken(responseAfterCreatingUser));
+
+        StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
+        StellarBurgerLoginPage stellarBurgerLoginPage = new StellarBurgerLoginPage(driver);
+
+        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
+        stellarBurgerMainPage.clickOnLoginToAccountButton();
+
+        stellarBurgerLoginPage.waitStellarBurgerLoginPageLoading();
+        stellarBurgerLoginPage.enterDataToFieldsForLogin("Mukhammed@yandex.ru", "password");
+        stellarBurgerLoginPage.clickToLoginButton();
+
+        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
+        stellarBurgerMainPage.clickOnPersonalAccountButton();
     }
 
     @Test
     public void tryToTransferToConstructorPageByClickingConstructorButton() {
         StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
-        StellarBurgerLoginPage stellarBurgerLoginPage = new StellarBurgerLoginPage(driver);
         StellarBurgerPersonalAccountPage stellarBurgerPersonalAccountPage = new StellarBurgerPersonalAccountPage(driver);
-
-        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
-        stellarBurgerMainPage.clickOnLoginToAccountButton();
-
-        stellarBurgerLoginPage.waitStellarBurgerLoginPageLoading();
-        stellarBurgerLoginPage.enterDataToFieldsForLogin("Mukhammed@yandex.ru", "password");
-        stellarBurgerLoginPage.clickToLoginButton();
-
-        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
-        stellarBurgerMainPage.clickOnPersonalAccountButton();
 
         stellarBurgerPersonalAccountPage.waitStellarBurgerPersonalAccountPageLoading();
         stellarBurgerPersonalAccountPage.clickToConstructorButton();
 
-        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
+        stellarBurgerMainPage.presenceOfAssembleTheBurgerText();
     }
 
     @Test
     public void tryToTransferToConstructorPageByClickingLogoOfStellarBurger() {
         StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
-        StellarBurgerLoginPage stellarBurgerLoginPage = new StellarBurgerLoginPage(driver);
         StellarBurgerPersonalAccountPage stellarBurgerPersonalAccountPage = new StellarBurgerPersonalAccountPage(driver);
-
-        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
-        stellarBurgerMainPage.clickOnLoginToAccountButton();
-
-        stellarBurgerLoginPage.waitStellarBurgerLoginPageLoading();
-        stellarBurgerLoginPage.enterDataToFieldsForLogin("Mukhammed@yandex.ru", "password");
-        stellarBurgerLoginPage.clickToLoginButton();
-
-        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
-        stellarBurgerMainPage.clickOnPersonalAccountButton();
 
         stellarBurgerPersonalAccountPage.waitStellarBurgerPersonalAccountPageLoading();
         stellarBurgerPersonalAccountPage.clickToStellarBurgerLogo();
 
-        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
+        stellarBurgerMainPage.presenceOfAssembleTheBurgerText();
     }
 
     @After

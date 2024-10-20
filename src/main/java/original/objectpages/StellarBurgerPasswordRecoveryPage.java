@@ -1,5 +1,6 @@
 package original.objectpages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,11 +19,13 @@ public class StellarBurgerPasswordRecoveryPage {
         this.driver = driver;
     }
 
+    @Step("Ждем загрузки страницы восстановление пароля")
     public void waitStellarBurgerRegistrationPageLoading() {
         new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT))
                 .until(ExpectedConditions.visibilityOfElementLocated(passwordRecoveryText));
     }
 
+    @Step("Нажимаем на кнопку/ссылку \"Войти\"")
     public void clickToLoginLink() {
         driver.findElement(loginLink).click();
     }

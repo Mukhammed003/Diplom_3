@@ -1,5 +1,6 @@
 package original.objectpages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -25,25 +26,30 @@ public class StellarBurgerRegistrationPage {
         this.driver = driver;
     }
 
+    @Step("Ждем загрузки страницы регистрации")
     public void waitStellarBurgerRegistrationPageLoading() {
         new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT))
                 .until(ExpectedConditions.visibilityOfElementLocated(registrationText));
     }
 
+    @Step("Вводим все данные в поля для регистрации")
     public void enterDataToFieldsForRegistration(String name, String email, String password) {
         driver.findElement(nameField).sendKeys(name);
         driver.findElement(emailField).sendKeys(email);
         driver.findElement(passwordField).sendKeys(password);
     }
 
+    @Step("Нажимаем на кнопку \"Зарегистрироваться\"")
     public void clickToRegisterButton() {
         driver.findElement(registerButton).click();
     }
 
+    @Step("Проверяем правильность текстов об ошибке")
     public void checkingCorrectnessOfErrorText() {
         assertEquals("Another error text for password field", Constants.EXPECTED_ERROR_MESSAGE_FOR_PASSWORD_FIELD, driver.findElement(errorTextOfPasswordField).getText());
     }
 
+    @Step("Нажимаем на кнопку/ссылку \"Войти\"")
     public void clickToLoginLink() {
         driver.findElement(loginLink).click();
     }

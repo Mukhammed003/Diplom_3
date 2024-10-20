@@ -13,6 +13,7 @@ import original.objectpages.StellarBurgerPasswordRecoveryPage;
 import original.objectpages.StellarBurgerRegistrationPage;
 
 public class TryToLoginTest {
+
     WebDriver driver;
 
     private String accessToken;
