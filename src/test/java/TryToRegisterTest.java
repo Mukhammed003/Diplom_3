@@ -52,7 +52,7 @@ public class TryToRegisterTest {
         stellarBurgerRegistrationPage.enterDataToFieldsForRegistration("Mukhammed", "Mukhammed@yandex.ru", "password");
         stellarBurgerRegistrationPage.clickToRegisterButton();
 
-        stellarBurgerLoginPage.presenceOfTextLogin();
+        stellarBurgerLoginPage.presenceOfLoginText();
     }
 
     @Test

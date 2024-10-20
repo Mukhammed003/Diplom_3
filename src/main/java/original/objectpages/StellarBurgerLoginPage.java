@@ -33,7 +33,7 @@ public class StellarBurgerLoginPage {
         driver.findElement(registerLink).click();
     }
 
-    public void presenceOfTextLogin() {
+    public void presenceOfLoginText() {
         new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT))
                 .until(ExpectedConditions.visibilityOfElementLocated(loginText));
         assertTrue(driver.findElement(loginText).isDisplayed());
