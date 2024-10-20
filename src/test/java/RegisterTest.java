@@ -11,7 +11,7 @@ import original.objectpages.StellarBurgerLoginPage;
 import original.objectpages.StellarBurgerMainPage;
 import original.objectpages.StellarBurgerRegistrationPage;
 
-public class TryToRegisterTest {
+public class RegisterTest {
 
     WebDriver driver;
 

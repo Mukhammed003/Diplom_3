@@ -9,9 +9,8 @@ import original.Constants;
 import original.apisteps.StepsForWorkingWithAPI;
 import original.objectpages.StellarBurgerLoginPage;
 import original.objectpages.StellarBurgerMainPage;
-import original.objectpages.StellarBurgerPersonalAccountPage;
 
-public class tryToLogoutTest {
+public class TransitionBetweenSectionsOfConstructorTest {
 
     WebDriver driver;
 
@@ -46,20 +45,34 @@ public class tryToLogoutTest {
         stellarBurgerLoginPage.waitStellarBurgerLoginPageLoading();
         stellarBurgerLoginPage.enterDataToFieldsForLogin("Mukhammed@yandex.ru", "password");
         stellarBurgerLoginPage.clickToLoginButton();
-
-        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
-        stellarBurgerMainPage.clickOnPersonalAccountButton();
     }
 
     @Test
-    public void tryToLogoutByClickingLogoutButton() {
-        StellarBurgerLoginPage stellarBurgerLoginPage = new StellarBurgerLoginPage(driver);
-        StellarBurgerPersonalAccountPage stellarBurgerPersonalAccountPage = new StellarBurgerPersonalAccountPage(driver);
+    public void tryToTransitionToBunsSectionByClickingBunsButton() {
+        StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
 
-        stellarBurgerPersonalAccountPage.waitStellarBurgerPersonalAccountPageLoading();
-        stellarBurgerPersonalAccountPage.clickToLogoutButton();
+        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
+        stellarBurgerMainPage.clickOnSaucesButton();
+        stellarBurgerMainPage.clickOnBunsButton();
+        stellarBurgerMainPage.presenceOfBunsSection();
+    }
 
-        stellarBurgerLoginPage.presenceOfLoginText();
+    @Test
+    public void tryToTransitionToSaucesSectionByClickingSaucesButton() {
+        StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
+
+        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
+        stellarBurgerMainPage.clickOnSaucesButton();
+        stellarBurgerMainPage.presenceOfSaucesSection();
+    }
+
+    @Test
+    public void tryToTransitionToFillingsSectionByClickingFillingsButton() {
+        StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
+
+        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
+        stellarBurgerMainPage.clickOnFillingsButton();
+        stellarBurgerMainPage.presenceOfFillingsSection();
     }
 
     @After

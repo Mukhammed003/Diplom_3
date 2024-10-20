@@ -9,8 +9,9 @@ import original.Constants;
 import original.apisteps.StepsForWorkingWithAPI;
 import original.objectpages.StellarBurgerLoginPage;
 import original.objectpages.StellarBurgerMainPage;
+import original.objectpages.StellarBurgerPersonalAccountPage;
 
-public class tryToTransitionBetweenSectionsOfConstructorTest {
+public class TransferToConstructorTest {
 
     WebDriver driver;
 
@@ -45,34 +46,31 @@ public class tryToTransitionBetweenSectionsOfConstructorTest {
         stellarBurgerLoginPage.waitStellarBurgerLoginPageLoading();
         stellarBurgerLoginPage.enterDataToFieldsForLogin("Mukhammed@yandex.ru", "password");
         stellarBurgerLoginPage.clickToLoginButton();
+
+        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
+        stellarBurgerMainPage.clickOnPersonalAccountButton();
     }
 
     @Test
-    public void tryToTransitionToBunsSectionByClickingBunsButton() {
+    public void tryToTransferToConstructorPageByClickingConstructorButton() {
         StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
+        StellarBurgerPersonalAccountPage stellarBurgerPersonalAccountPage = new StellarBurgerPersonalAccountPage(driver);
 
-        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
-        stellarBurgerMainPage.clickOnSaucesButton();
-        stellarBurgerMainPage.clickOnBunsButton();
-        stellarBurgerMainPage.presenceOfBunsSection();
+        stellarBurgerPersonalAccountPage.waitStellarBurgerPersonalAccountPageLoading();
+        stellarBurgerPersonalAccountPage.clickToConstructorButton();
+
+        stellarBurgerMainPage.presenceOfAssembleTheBurgerText();
     }
 
     @Test
-    public void tryToTransitionToSaucesSectionByClickingSaucesButton() {
+    public void tryToTransferToConstructorPageByClickingLogoOfStellarBurger() {
         StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
+        StellarBurgerPersonalAccountPage stellarBurgerPersonalAccountPage = new StellarBurgerPersonalAccountPage(driver);
 
-        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
-        stellarBurgerMainPage.clickOnSaucesButton();
-        stellarBurgerMainPage.presenceOfSaucesSection();
-    }
+        stellarBurgerPersonalAccountPage.waitStellarBurgerPersonalAccountPageLoading();
+        stellarBurgerPersonalAccountPage.clickToStellarBurgerLogo();
 
-    @Test
-    public void tryToTransitionToFillingsSectionByClickingFillingsButton() {
-        StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
-
-        stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
-        stellarBurgerMainPage.clickOnFillingsButton();
-        stellarBurgerMainPage.presenceOfFillingsSection();
+        stellarBurgerMainPage.presenceOfAssembleTheBurgerText();
     }
 
     @After

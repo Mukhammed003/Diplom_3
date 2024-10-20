@@ -11,7 +11,7 @@ import original.objectpages.StellarBurgerLoginPage;
 import original.objectpages.StellarBurgerMainPage;
 import original.objectpages.StellarBurgerPersonalAccountPage;
 
-public class TryToTransferToConstructorTest {
+public class LogoutTest {
 
     WebDriver driver;
 
@@ -52,25 +52,14 @@ public class TryToTransferToConstructorTest {
     }
 
     @Test
-    public void tryToTransferToConstructorPageByClickingConstructorButton() {
-        StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
+    public void tryToLogoutByClickingLogoutButton() {
+        StellarBurgerLoginPage stellarBurgerLoginPage = new StellarBurgerLoginPage(driver);
         StellarBurgerPersonalAccountPage stellarBurgerPersonalAccountPage = new StellarBurgerPersonalAccountPage(driver);
 
         stellarBurgerPersonalAccountPage.waitStellarBurgerPersonalAccountPageLoading();
-        stellarBurgerPersonalAccountPage.clickToConstructorButton();
+        stellarBurgerPersonalAccountPage.clickToLogoutButton();
 
-        stellarBurgerMainPage.presenceOfAssembleTheBurgerText();
-    }
-
-    @Test
-    public void tryToTransferToConstructorPageByClickingLogoOfStellarBurger() {
-        StellarBurgerMainPage stellarBurgerMainPage = new StellarBurgerMainPage(driver);
-        StellarBurgerPersonalAccountPage stellarBurgerPersonalAccountPage = new StellarBurgerPersonalAccountPage(driver);
-
-        stellarBurgerPersonalAccountPage.waitStellarBurgerPersonalAccountPageLoading();
-        stellarBurgerPersonalAccountPage.clickToStellarBurgerLogo();
-
-        stellarBurgerMainPage.presenceOfAssembleTheBurgerText();
+        stellarBurgerLoginPage.presenceOfLoginText();
     }
 
     @After

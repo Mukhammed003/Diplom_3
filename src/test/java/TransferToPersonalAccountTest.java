@@ -11,7 +11,7 @@ import original.objectpages.StellarBurgerLoginPage;
 import original.objectpages.StellarBurgerMainPage;
 import original.objectpages.StellarBurgerPersonalAccountPage;
 
-public class TryToTransferToPersonalAccountTest {
+public class TransferToPersonalAccountTest {
 
     WebDriver driver;
 

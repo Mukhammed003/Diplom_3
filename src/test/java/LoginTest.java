@@ -12,7 +12,7 @@ import original.objectpages.StellarBurgerMainPage;
 import original.objectpages.StellarBurgerPasswordRecoveryPage;
 import original.objectpages.StellarBurgerRegistrationPage;
 
-public class TryToLoginTest {
+public class LoginTest {
 
     WebDriver driver;
 
