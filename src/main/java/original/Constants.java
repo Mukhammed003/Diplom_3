@@ -4,6 +4,7 @@ public class Constants {
 
     public static final String URL_OF_SITE = "https://stellarburgers.nomoreparties.site/";
     public static final int EXPLICIT_WAIT = 5;
+    public static final int IMPLICIT_WAIT = 10;
 
     public final static String BASIC_URL = "https://stellarburgers.nomoreparties.site";
     public final static String ENDPOINT_FOR_LOGIN_USER = "/api/auth/login";

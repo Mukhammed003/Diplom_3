@@ -18,12 +18,9 @@ public class StellarBurgerMainPage {
     private By assembleTheBurgerText = By.xpath(".//h1[text()='Соберите бургер']");
     private By makeOrderButton = By.xpath(".//button[text()='Оформить заказ']");
     private By personalAccountButton = By.xpath(".//p[text()='Личный Кабинет']");
-    private By bunsButton = By.xpath(".//span[text()='Булки']");
-    private By saucesButton = By.xpath(".//span[text()='Соусы']");
-    private By fillingsButton = By.xpath(".//span[text()='Начинки']");
-    private By bunsSection = By.xpath(".//h2[text()='Булки']");
-    private By saucesSection = By.xpath(".//h2[text()='Соусы']");
-    private By fillingsSection = By.xpath(".//h2[text()='Начинки']");
+    private By bunsButton = By.cssSelector(".tab_tab__1SPyG:nth-child(1)");
+    private By saucesButton = By.cssSelector(".tab_tab__1SPyG:nth-child(2)");
+    private By fillingsButton = By.cssSelector(".tab_tab__1SPyG:nth-child(3)");
 
     public StellarBurgerMainPage(WebDriver driver) {
         this.driver = driver;
@@ -61,37 +58,40 @@ public class StellarBurgerMainPage {
 
     @Step("Нажимаем на кнопку \"Булки\"")
     public void clickOnBunsButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT))
+                .until(ExpectedConditions.visibilityOfElementLocated(bunsButton));
         driver.findElement(bunsButton).click();
     }
 
     @Step("Нажимаем на кнопку \"Соусы\"")
     public void clickOnSaucesButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT))
+                .until(ExpectedConditions.visibilityOfElementLocated(saucesButton));
         driver.findElement(saucesButton).click();
     }
 
     @Step("Нажимаем на кнопку \"Начинки\"")
     public void clickOnFillingsButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT))
+                .until(ExpectedConditions.visibilityOfElementLocated(fillingsButton));
         driver.findElement(fillingsButton).click();
     }
 
-    @Step("Проверяем что раздел \"Булки\" отображается")
-    public void presenceOfBunsSection() {
-        new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT))
-                .until(ExpectedConditions.visibilityOfElementLocated(bunsSection));
-        assertTrue(driver.findElement(bunsSection).isDisplayed());
+    @Step("Проверяем переключение на раздел \"Булки\"")
+    public void сheckingTheSectionSwitchingToBunsSection() {
+        new WebDriverWait(driver, Duration.ofSeconds(Constants.IMPLICIT_WAIT))
+                .until(ExpectedConditions.attributeContains(bunsButton, "class", "current"));
     }
 
-    @Step("Проверяем что раздел \"Соусы\" отображается")
-    public void presenceOfSaucesSection() {
-        new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT))
-                .until(ExpectedConditions.visibilityOfElementLocated(saucesSection));
-        assertTrue(driver.findElement(saucesSection).isDisplayed());
+    @Step("Проверяем переключение на раздел \"Соусы\"")
+    public void сheckingTheSectionSwitchingToSaucesSection() {
+        new WebDriverWait(driver, Duration.ofSeconds(Constants.IMPLICIT_WAIT))
+                .until(ExpectedConditions.attributeContains(saucesButton, "class", "current"));
     }
 
-    @Step("Проверяем что раздел \"Начинки\" отображается")
-    public void presenceOfFillingsSection() {
-        new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT))
-                .until(ExpectedConditions.visibilityOfElementLocated(fillingsSection));
-        assertTrue(driver.findElement(fillingsSection).isDisplayed());
+    @Step("Проверяем переключение на раздел \"Начинки\"")
+    public void сheckingTheSectionSwitchingToFillingsSection() {
+        new WebDriverWait(driver, Duration.ofSeconds(Constants.IMPLICIT_WAIT))
+                .until(ExpectedConditions.attributeContains(fillingsButton, "class", "current"));
     }
 }

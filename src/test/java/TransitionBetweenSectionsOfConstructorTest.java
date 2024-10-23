@@ -54,7 +54,7 @@ public class TransitionBetweenSectionsOfConstructorTest {
         stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
         stellarBurgerMainPage.clickOnSaucesButton();
         stellarBurgerMainPage.clickOnBunsButton();
-        stellarBurgerMainPage.presenceOfBunsSection();
+        stellarBurgerMainPage.сheckingTheSectionSwitchingToBunsSection();
     }
 
     @Test
@@ -63,7 +63,7 @@ public class TransitionBetweenSectionsOfConstructorTest {
 
         stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
         stellarBurgerMainPage.clickOnSaucesButton();
-        stellarBurgerMainPage.presenceOfSaucesSection();
+        stellarBurgerMainPage.сheckingTheSectionSwitchingToSaucesSection();
     }
 
     @Test
@@ -72,7 +72,7 @@ public class TransitionBetweenSectionsOfConstructorTest {
 
         stellarBurgerMainPage.waitStellarBurgerMainPageLoading();
         stellarBurgerMainPage.clickOnFillingsButton();
-        stellarBurgerMainPage.presenceOfFillingsSection();
+        stellarBurgerMainPage.сheckingTheSectionSwitchingToFillingsSection();
     }
 
     @After
